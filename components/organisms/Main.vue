@@ -82,6 +82,8 @@ export default Vue.extend({
         this.link = link;
         this.disabled = false;
         alert('Novo link gerado!');
+      } if (!this.tel) {
+        alert('Preencha o campo com o número do telefone!');
       } else {
         this.disabled = true;
         const tel = this.tel.replace(/\D/g, '');
