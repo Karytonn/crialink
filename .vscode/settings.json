@@ -1,0 +1,10 @@
+{
+  "vetur.experimental.templateInterpolationService": true,
+  "cSpell.words": [
+    "contant",
+    "getlink",
+    "linkaction",
+    "tipar",
+    "Vuex"
+  ]
+}
