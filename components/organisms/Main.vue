@@ -190,5 +190,4 @@ export default Vue.extend({
 .btn-getlink {
   @apply block mx-auto my-4 px-6 py-2 bg-teal-800 text-gray-50 rounded-lg font-bold text-lg shadow-lg shadow-teal-800/50
 }
-
 </style>
