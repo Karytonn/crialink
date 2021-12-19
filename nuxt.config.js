@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'Cria Link',
     meta: [
-      // Essetial Meta Tags
+      // Essential Meta Tags
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=yes' },
@@ -92,7 +92,7 @@ export default {
   pwa: {
     manifest: {
       lang: 'pt-br',
-    },
+    }
   },
 
   googleFonts: {

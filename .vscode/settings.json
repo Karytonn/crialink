@@ -2,9 +2,13 @@
   "vetur.experimental.templateInterpolationService": true,
   "cSpell.words": [
     "contant",
+    "crialink",
     "getlink",
     "linkaction",
+    "lintfix",
+    "prefetch",
     "tipar",
-    "Vuex"
+    "Vuex",
+    "wght"
   ]
 }
