@@ -133,7 +133,7 @@ export default Vue.extend({
       if (this.link) {
         window.open(this.link, '_blank');
       } else {
-        alert('Por favor, gere o link antes de abrir.');
+        alert('Por favor, gere o link antes de abrir o Whatsapp.');
       }
     },
     reset() {
