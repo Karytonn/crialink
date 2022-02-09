@@ -2,6 +2,10 @@
 
 ## Crie links personalizados para compartilhar seu WhatsApp, ou inicie uma conversa sem salvar o contato.
 
+🔗[Cria Link](https://crialink.karytonn.dev)
+
+### Quer ter seu próprio Cria Link, fique a vontade para clonar este projeto?! 🚀
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fb52fff2-e26e-43b9-b54b-e2edc8c7d019/deploy-status)](https://app.netlify.com/sites/admiring-thompson-34145e/deploys)
 
 ## Build Setup
