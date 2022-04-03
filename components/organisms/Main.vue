@@ -15,6 +15,7 @@
       <label class="input-label" for="message">Mensagem <span>(Opcional)</span></label>
       <textarea class="text-area" name="message" v-model.trim="message" id="message" rows="2"></textarea>
 
+      <label class="input-label" for="message">Link gerado</label>
       <input class="input-link" v-model="link" type="url" name="url" id="ulr" :disabled="disabled" placeholder="https://api.whatsapp.com/send?phone...">
       
       <!-- Form functions for link -->
@@ -74,22 +75,23 @@ export default Vue.extend({
   },
   methods: {
     getLink() {
-      if (this.link) {
-        this.disabled = true;
-        const tel = this.tel.replace(/\D/g, '');
-        const message = this.message.replace(/\s+/g, "%20");
-        const link = `https://api.whatsapp.com/send?phone=55${tel}&text=${message}`;
-        this.link = link;
+      if (this.link && this.tel ) {
+        if(this.message.length <= 0)  {
+          this.link = `https://api.whatsapp.com/send?phone=55${this.telSanitize(this.tel)}`;
+        } else {
+          this.link = `https://api.whatsapp.com/send?phone=55${this.telSanitize(this.tel)}&text=${this.messageSanitize(this.message)}`;
+        }
         this.disabled = false;
         alert('Novo link gerado!');
       } if (!this.tel) {
         alert('Preencha o campo com o número do telefone!');
-      } else {
         this.disabled = true;
-        const tel = this.tel.replace(/\D/g, '');
-        const message = this.message.replace(/\s+/g, "%20");
-        const link = `https://api.whatsapp.com/send?phone=55${tel}&text=${message}`;
-        this.link = link;
+      } else {
+        if(this.message.length <= 0)  {
+          this.link = `https://api.whatsapp.com/send?phone=55${this.telSanitize(this.tel)}`;
+        } else {
+          this.link = `https://api.whatsapp.com/send?phone=55${this.telSanitize(this.tel)}&text=${this.messageSanitize(this.message)}`;
+        }
         this.disabled = false;
       }
     },
@@ -141,7 +143,13 @@ export default Vue.extend({
       this.message = '';
       this.link = '';
       this.disabled = true;
-    }
+    },
+    telSanitize(tel : string): string {
+      return tel.replace(/\D/g, '');
+    },
+    messageSanitize(message : string): string {
+      return message.replace(/\s+/g, "%20");
+    },
   }
 });
 </script>
@@ -176,11 +184,11 @@ export default Vue.extend({
 }
 
 .input-link {
-  @apply w-full mt-4 rounded-lg text-xs placeholder:text-slate-400
+  @apply w-full rounded-lg text-xs placeholder:text-slate-400
 }
 
 .text-area {
-  @apply w-full rounded-lg
+  @apply w-full mb-3 rounded-lg
 }
 
 .btn-linkaction {
