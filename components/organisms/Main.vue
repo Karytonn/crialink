@@ -97,38 +97,25 @@ export default Vue.extend({
     },
     shareLink() {
       alert('Função ainda não disponível!');
-      // navigator
-      //   .share({
-      //     title: "Web Share API Polyfill",
-      //     text: "Check out this link",
-      //     url: this.link
-      //   })
-      //   .then(_ => console.log("Yay, you shared it :)"))
-      //   .catch(error =>
-      //     console.log("Oh noh! You couldn't share it! :'(\n", error)
-      //   );
     },
     copyMessage() {
-      try {
-        if (this.link) {
-        navigator.clipboard.writeText(this.link);
-        alert('Link copiado!');
-        } else {
-          alert('Por favor, gere o link antes de copiar.');
+      if (this.link) {
+        try {
+          navigator.clipboard.writeText(this.link);
+          alert('Link copiado!');
+        } catch (error) {
+          const el = document.createElement('textarea');
+          el.value = this.link;
+          el.setAttribute('readonly', '');
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand('copy');
+          document.body.removeChild(el);
+          alert('Link copiado!');
+          console.log(error);
         }
-      } catch (error) {
-        if (this.link) {
-        const el = document.createElement('textarea');
-        el.value = this.link;
-        el.setAttribute('readonly', '');
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-        alert('Link copiado!');
-        } else {
-          alert('Por favor, gere o link antes de copiar.');
-        }
+      } else {
+        alert('Por favor, gere o link antes de copiar.');
       }
     },
     openWhatsapp() {
