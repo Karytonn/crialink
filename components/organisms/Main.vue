@@ -100,10 +100,9 @@ export default Vue.extend({
     },
     copyMessage() {
       if (this.link) {
-        try {
-          navigator.clipboard.writeText(this.link);
+        navigator.clipboard.writeText(this.link).then(() => {
           alert('Link copiado!');
-        } catch (error) {
+        }).catch(error => {
           const el = document.createElement('textarea');
           el.value = this.link;
           el.setAttribute('readonly', '');
@@ -113,7 +112,7 @@ export default Vue.extend({
           document.body.removeChild(el);
           alert('Link copiado!');
           console.log(error);
-        }
+        });
       } else {
         alert('Por favor, gere o link antes de copiar.');
       }
